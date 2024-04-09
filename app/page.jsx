@@ -1,7 +1,7 @@
 
 import Logo from '@/images/logo.png';
 import Image from 'next/image';
-
+import Link from 'next/link';
 import SearchBox from '@/components/SearchBox';
 
 
@@ -17,9 +17,9 @@ export default function Home() {
         <div className="max-w-6xl w-full mx-auto relative">
 
           {/* Logo */}
-          <div className="flex justify-center ">
+          <Link href="/" className="flex justify-center ">
             <Image src={Logo.src} height={150} width={400} alt="logo" />
-          </div>
+          </Link>
 
 
 

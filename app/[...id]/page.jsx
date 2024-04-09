@@ -1,36 +1,50 @@
-'use client'
 
-import { useState } from "react";
+import Logo from '@/images/logo.png';
+import Image from 'next/image';
 import Link from 'next/link';
-import { FaChevronRight, FaComment, FaThumbsDown, FaThumbsUp } from 'react-icons/fa';
+import { mockSearchResults } from '../libs/constants';
 
-const ResultsHeader = ({ results, clearResults }) => {
+import { FaArrowLeft, FaComment, FaThumbsDown, FaThumbsUp, FaSearch } from 'react-icons/fa';
 
-  const [showRefine, setShowRefine] = useState(false);
 
-  const handleRefine = () => setShowRefine((prevState) => !prevState);
+const SoftwarePage = ({ params }) => {
 
-  if (results?.length > 0) return (
+  const softwareId = params?.id[0];
 
-    <div className="mt-24">
+  const result = mockSearchResults.find((item) => item.id === softwareId);
 
-      {/* Result info / refine button */}
-      <div className="flex justify-between items-center mb-12">
-        <div className="text-white text-sm sm:text-xl font-press-start-2p">
-          {results?.length} Results Found
-        </div>
 
-        <button onClick={clearResults} className="text-white font-press-start-2p text-xs font-light text-red-500 ">Clear Results</button>
-      </div>
+  return (
+    <>
 
-      <div className="relative z-40 grid grid-cols-1 gap-6">
-        {results?.map((result, index) => (
-          <div key={result.id} className="bg-black/50 rounded-md p-6 text-white">
+      {/* Container */}
+      <div className="min-h-screen w-full flex items-center">
+        <div className="max-w-6xl w-full mx-auto relative">
+
+          {/* Logo */}
+          <Link href="/" className="flex justify-center ">
+            <Image src={Logo.src} height={150} width={400} alt="logo" />
+          </Link>
+
+
+
+          <div className="w-full mt-12">
+
+            <div className="relative mb-4 ">
+              <Link href="/" >
+                <div className="flex items-center justify-center rounded-md p-2 w-fit text-primary bg-black/50 border border-primary">
+                  <FaArrowLeft className="w-4 h-4" />
+                </div>
+              </Link>
+            </div>
+
+            <div className="w-full bg-black border border-primary p-6 sm:p-10 text-white rounded-md">
+
             <div className="sm:flex justify-between gap-12">
 
               {/* Result content section */}
               <div className="w-fit">
-                <div className="font-press-start-2p text-lg mb-6">{result.title}</div>
+                <div className="font-press-start-2p text-xl sm:text-2xl mb-6">{result.title}</div>
                 <p>{result.description}</p>
 
                 {/* Map through tags */}
@@ -69,21 +83,15 @@ const ResultsHeader = ({ results, clearResults }) => {
               </div>
             </div>
 
-            {/* View button */}
-            <Link href={`/${result.id}/${result.title.toLowerCase().split(' ').join('-')}`} 
-            className="w-fit mt-6 bg-black p-2 sm:p-4 border border-[#ACC156] rounded-md font-press-start-2p text-xs flex items-center gap-2 hover:border-white hover:text-primary z-40 relative"> Views <FaChevronRight className="h-4 w-4" />
-            </Link>
+
+
+            {/* quick hack to enable scrollbar */}
+            <div className="h-[200px]"></div>
           </div>
-        ))}
+        </div>
       </div>
-
-    </div>
-
-
-
-
-
-
+      </div>
+    </>
   )
 }
-export default ResultsHeader
+export default SoftwarePage
