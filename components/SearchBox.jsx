@@ -5,6 +5,7 @@ import { FaChevronRight, FaComment, FaThumbsDown, FaThumbsUp, FaSearch } from 'r
 import Preview from '@/images/prev.webp'
 import Results from '@/components/Results';
 import Filters from './Filters';
+import { toast } from 'react-toastify'
 
 
 const mockSearchResults = [
@@ -140,6 +141,12 @@ const SearchBox = () => {
 
     /// mock get results
     const getResults = () => {
+
+        if(search.query.length === 0){
+            toast.error('Please enter a search query.');
+            setResults([])
+            return;
+        }
         setResults(mockSearchResults);
     }
 
