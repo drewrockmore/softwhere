@@ -71,7 +71,7 @@ const ResultsHeader = ({ results, clearResults }) => {
 
             {/* View button */}
             <Link href={`/${result.id}/${result.title.toLowerCase().split(' ').join('-')}`} 
-            className="w-fit mt-6 bg-black p-2 sm:p-4 border border-[#ACC156] rounded-md font-press-start-2p text-xs flex items-center gap-2 hover:border-white hover:text-primary z-40 relative"> Views <FaChevronRight className="h-4 w-4" />
+            className="w-fit mt-6 bg-black p-2 sm:p-4 border border-[#ACC156] rounded-md font-press-start-2p text-xs flex items-center gap-2 hover:border-white hover:text-primary z-40 relative"> View <FaChevronRight className="h-4 w-4" />
             </Link>
           </div>
         ))}
