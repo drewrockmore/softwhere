@@ -20,7 +20,8 @@ const ResultsHeader = ({ results, clearResults }) => {
           {results?.length} Results Found
         </div>
 
-        <button onClick={clearResults} className="text-white font-press-start-2p text-xs font-light text-red-500 ">Clear Results</button>
+        <button onClick={clearResults} className="hidden sm:block text-white font-press-start-2p text-xs font-light text-red-500 ">Clear Results</button>
+        <button onClick={clearResults} className="sm:hidden text-red-600 font-press-start-2p text-xs font-light text-red-500 ">X</button>
       </div>
 
       <div className="relative z-40 grid grid-cols-1 gap-6">

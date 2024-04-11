@@ -13,16 +13,8 @@ export default function Home() {
     <>
 
       {/* Container */}
-      <div className="min-h-screen w-full flex items-center">
+      <div className="h-full w-full flex items-center">
         <div className="max-w-6xl w-full mx-auto relative">
-
-          {/* Logo */}
-          <Link href="/" className="flex justify-center ">
-            <Image src={Logo.src} height={150} width={400} alt="logo" />
-          </Link>
-
-
-
           <div className="w-full">
     
               <SearchBox />
