@@ -100,11 +100,10 @@ const SearchBox = () => {
     /// update input query for state
     const handleSearch = (id, state) => {
 
-        const tags = state.split(' ');
+        //const tags = state.split(' ');
 
         setSearch((prevState) => ({
             ...prevState,
-            tags: tags,
             [`${id}`]: state
         }))
     }
